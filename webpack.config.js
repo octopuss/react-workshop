@@ -1,10 +1,17 @@
-let webpack = require('webpack');
-let path = require('path');
+var webpack = require('webpack');
+var path = require('path');
 process.traceDeprecation = true;
 const config = {
     stats: {
         colors: true,
         timings: true,
+        reasons: false,
+        hash: false,
+        version: false,
+        chunks: false,
+        chunkModules: false,
+        cached: false,
+        cachedAssets: false
     },
     entry: {
         vendor: [
@@ -32,7 +39,7 @@ const config = {
                     options: {
                         babelrc: false,
                         presets: [
-                            'latest',
+                            'env',
                             'es2015',
                             'stage-0',
                             'react',
@@ -59,7 +66,7 @@ const config = {
             }
         ]
     },
-    devtool: 'inline-source-map',
+    devtool: 'source-map',
     plugins: [
         new webpack.LoaderOptionsPlugin(),
         new webpack.HotModuleReplacementPlugin(),
@@ -67,12 +74,10 @@ const config = {
         new webpack.NoEmitOnErrorsPlugin(),
     ],
     devServer: {
-        host: 'localhost',
+        host: '0.0.0.0',
         port: 3000,
         historyApiFallback: true,
-        // respond to 404s with index.html
         hot: true,
-        // enable HMR on the server
     },
 
 };
