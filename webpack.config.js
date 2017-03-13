@@ -19,7 +19,7 @@ const config = {
             'webpack-dev-server/client?http://localhost:3000',
             'webpack/hot/only-dev-server'
         ],
-        app: path.resolve(__dirname, 'src/app.js')
+        app: path.resolve(__dirname, 'src/index.js')
     },
     resolve: {
         extensions: ['.js', '.json'],
@@ -33,8 +33,6 @@ const config = {
             {
                 test: /\.js$/,
                 use: [{
-                    loader: 'react-hot-loader'
-                }, {
                     loader: 'babel-loader',
                     options: {
                         babelrc: false,
@@ -46,6 +44,7 @@ const config = {
                         ],
                         plugins: [
                             'transform-runtime',
+                            'react-hot-loader/babel'
                         ]
                     }
                 }],
@@ -63,6 +62,10 @@ const config = {
                     }
                     }
                 ],
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf)$/,
+                use: [{loader: 'url-loader'}]
             }
         ]
     },

@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "React.js hands on workshop",
   "scripts": {
-    "postinstall" : "npm run start",
+    "postinstall": "npm run start",
     "prebuild": "./node_modules/.bin/rimraf dist/*",
     "build": "./node_modules/.bin/webpack",
     "postbuild": "copyfiles -u 1 src/*.html dist",
-    "prestart" : "npm run build",
+    "prestart": "npm run build",
     "start": "webpack-dev-server  --content-base dist/"
   },
   "author": "ivan.dolezal@gmail.com",
@@ -24,7 +24,7 @@
     "file-loader": "^0.10.1",
     "node-sass": "^4.5.0",
     "raw-loader": "^0.5.1",
-    "react-hot-loader": "^1.3.1",
+    "react-hot-loader": "^3.0.0-beta.6",
     "rimraf": "^2.6.1",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.13.2",
@@ -36,7 +36,13 @@
     "babel-polyfill": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
     "babel-runtime": "^6.23.0",
+    "keymirror": "^0.1.1",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "redux": "^3.6.0",
+    "redux-actions": "^2.0.1",
+    "redux-logger": "^2.8.2",
+    "updeep": "^1.0.0"
   }
 }
