@@ -15,7 +15,6 @@ const config = {
     },
     entry: {
         vendor: [
-            'react-hot-loader',
             'webpack-dev-server/client?http://localhost:3000',
             'webpack/hot/only-dev-server'
         ],
@@ -44,7 +43,6 @@ const config = {
                         ],
                         plugins: [
                             'transform-runtime',
-                            'react-hot-loader/babel'
                         ]
                     }
                 }],

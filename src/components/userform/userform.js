@@ -1,21 +1,17 @@
-import React, { Component, PropTypes } from 'react';
-import { TextField } from '../../components';
-import { onChangeInput } from '../../actions/actions';
+import React, { PropTypes } from 'react';
+import { withRouter } from 'react-router';
+
+import { TextField, Button } from '../../components';
+import { onChangeInput, onSubmit } from '../../actions/actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-class UserForm extends Component {
-
-    constructor(props) {
-        super(props);
-    }
+class UserForm extends React.Component {
 
     _handleSubmit = (e) => {
         e.preventDefault();
-        const { store } = this.context;
-        console.log(store.getState());
-        alert (store.getState());
-        return false;
+        this.props.onSubmit(this.props.formData);
+        this.props.router.push('/list');
     };
 
     _handleChangeData = (field, e) => {
@@ -26,32 +22,34 @@ class UserForm extends Component {
     render() {
         const { formData } = this.props;
         return (
-            <form onSubmit={this._handleSubmit}>
-                <TextField label="Username" name="name" value={formData.name} onChange={this._handleChangeData.bind(this,
-                    'name')}/>
+            <form onSubmit={this._handleSubmit.bind(this)}>
+                <TextField label="Username" name="name" value={formData.name}
+                           onChange={this._handleChangeData.bind(this,
+                               'name')}/>
                 <TextField label="Email" name="email" value={formData.email} onChange={this._handleChangeData.bind(this,
                     'email')}/>
-                <button>Submit!</button>
+                <Button label="Submit"/>
             </form>
         );
     }
 }
 
 UserForm.propTypes = {
-    onChangeInput: PropTypes.func.isRequired,
-    username: PropTypes.string,
+    onChangeInput: PropTypes.func,
+    onSubmit: PropTypes.func,
+    formData: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        email: PropTypes.string
+    }),
+    router: React.PropTypes.shape(
+    { push: React.PropTypes.func.isRequired }),
 };
 
-const _mapStateToProps = (state) => {
-    return {
-        formData: state.formData,
-    };
-};
+const _mapStateToProps = state => ({formData: state.formData});
 
-const _mapDispatchToProps = (dispatch) => {
-    return {
+const _mapDispatchToProps = dispatch => ({
         onChangeInput: bindActionCreators(onChangeInput, dispatch),
-    };
-};
+        onSubmit: bindActionCreators(onSubmit, dispatch)
+});
 
-export default connect(_mapStateToProps, _mapDispatchToProps)(UserForm)
+export default connect(_mapStateToProps, _mapDispatchToProps)(withRouter(UserForm));

@@ -1,12 +1,13 @@
 import { createAction } from 'redux-actions';
 import ActionTypes from '../constants/ActionTypes';
 
-const onChangeInput = createAction(ActionTypes.ON_CHANGE_INPUT, (field, value) => {
-    return {
-        field,
-        value,
-    };
-});
+const onChangeInput = createAction(ActionTypes.ON_CHANGE_INPUT, (field, value) => ({field,value}));
+
+const onSubmit = createAction(ActionTypes.FORM_SUBMITTED, user => ({user}));
+
+const onRemove = createAction(ActionTypes.ON_REMOVE, id => ({id}));
 
 export {onChangeInput};
-export default {onChangeInput};
+export {onSubmit};
+export {onRemove};
+export default {onChangeInput, onSubmit, onRemove};

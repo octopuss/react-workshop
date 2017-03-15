@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import "../variables";
 
 body {
     font-family: 'Roboto', sans-serif;
+    background: $lighter-blue;
+}
+
+form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+h1 {
+    background-color: url('../../assets/img/cpas_logo.png') no-repeat left;
 }

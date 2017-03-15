@@ -1,12 +1,12 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import './textfield.scss';
 
-const TextField = (props) => {
-    const { label, name, onChange, value } = props;
+const TextField = props => {
+    const { label, name, onChange, value, ...otherProps } = props;
     return (
-        <div>
-            <label htmlFor={name}>{label}</label>&nbsp;
-            <input className="TextField" name={name} type="text" onChange={onChange} value={value}/>
+        <div className="TextField">
+            <label htmlFor={name} className="TextField-label">{label}</label>&nbsp;
+            <input name={name} type="text" className="TextField-control" onChange={onChange} value={value} {...otherProps}/>
         </div>
     );
 };
