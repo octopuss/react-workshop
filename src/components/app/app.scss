@@ -1,12 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import "../variables";
 
-html {
-    margin: 0;
-    padding: 0;
-}
-
-body {
+html, body {
     font-family: 'Roboto', sans-serif;
     background: $lighter-blue;
     margin: 0;
@@ -14,33 +9,40 @@ body {
 }
 
 .App {
+
     &-header {
         background-color: white;
         border-bottom: 1px solid $light-grey;
         margin: 0 auto;
         overflow: auto;
         padding: 30px 0;
+
         &-image {
             width: 45%;
             text-align: right;
-            float:left;
+            float: left;
         }
+
         &-text {
+
             h1 {
                 padding: 0 0 0 10px;
                 margin: 0;
                 text-align: left;
             }
+
             svg {
-                padding-left:10px;
+                padding-left: 10px;
                 fill: $light-grey;
                 position: relative;
                 top: 2px;
             }
+
             a {
                 text-decoration: none;
                 color: $light-grey;
                 margin-left: 5px;
+
                 &:hover {
                     text-decoration: underline;
                 }

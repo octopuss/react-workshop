@@ -5,6 +5,7 @@
     padding: 6px 12px;
     font-size: 14px;
     clear: both;
+
     &-label {
         width: 10%;
         display: block;
@@ -14,6 +15,7 @@
         line-height: 55px;
         text-align: right;
     }
+
     &-control {
         height: 40px;
         padding: 0 18px;
@@ -24,16 +26,19 @@
         width: 80%;
         float: left;
     }
+
     &--disabled {
+
         .TextField-label {
             display: none;
         }
+
         .TextField-control {
             background: transparent;
             width: 100%;
             padding: 0;
             text-indent: 18px;
-            margin:0;
+            margin: 0;
         }
     }
 }

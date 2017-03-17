@@ -7,5 +7,5 @@ export { TextField };
 export { App };
 export { UserForm };
 export { UserTable };
-export {Button};
+export { Button };
 export default { TextField, App, UserForm, UserTable, Button };

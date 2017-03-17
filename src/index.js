@@ -13,7 +13,7 @@ const history = syncHistoryWithStore(browserHistory, store);
 render(
     <div>
         <Provider store={ store }>
-            <App history={history} />
+            <App history={history}/>
         </Provider>
     </div>, document.getElementById('app')
 );

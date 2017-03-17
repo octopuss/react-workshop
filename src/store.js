@@ -10,10 +10,10 @@ const reduxRouterMiddleware = routerMiddleware(browserHistory);
 
 const initialState = {
     formData : {
-        name : "Ivan",
-        email : "ivan@aa.aa"
+        name : "John Doe",
+        email : "jd@example.com"
     },
-    users : [{id: Math.random(), name:"prvni", email: "mail@example.com"}]
+    users : [{id: Math.random(), name:"First Person Singular", email: "mail@example.com"}]
 };
 
 const store = createStore(combineReducers({

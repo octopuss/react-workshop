@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import './button.scss';
 
 const Button = props => {
-    const {label, ...otherProps} = props;
+    const { label, ...otherProps } = props;
     return (
         <div className="Button">
             <button className="Button-control" {...otherProps}>{label}</button>
@@ -13,4 +13,4 @@ const Button = props => {
 Button.propTypes = {
     label: PropTypes.string
 };
-export default  Button;
+export default Button;
