@@ -21,7 +21,7 @@ const config = {
         app: path.resolve(__dirname, 'src/index.js')
     },
     resolve: {
-        extensions: ['.js', '.json'],
+        extensions: ['.js'],
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -40,9 +40,6 @@ const config = {
                             'es2015',
                             'stage-0',
                             'react',
-                        ],
-                        plugins: [
-                            'transform-runtime',
                         ]
                     }
                 }],
