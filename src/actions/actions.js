@@ -7,7 +7,10 @@ const onSubmit = createAction(ActionTypes.FORM_SUBMITTED, user => ({user}));
 
 const onRemove = createAction(ActionTypes.ON_REMOVE, id => ({id}));
 
+const onRowInputEdit = createAction(ActionTypes.ON_ROW_INPUT_EDIT, user => ({user}));
+
 export {onChangeInput};
 export {onSubmit};
 export {onRemove};
-export default {onChangeInput, onSubmit, onRemove};
+export {onRowInputEdit};
+export default {onChangeInput, onSubmit, onRemove, onRowInputEdit};

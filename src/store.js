@@ -1,7 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import formDataReducer from './reducers/formDataReducer';
 import usersReducer from './reducers/usersReducer';
-import loggingReducer from './reducers/loggingReducer';
 import createLogger from 'redux-logger';
 import { browserHistory } from 'react-router';
 import { routerMiddleware, routerReducer } from 'react-router-redux';
@@ -20,7 +19,6 @@ const initialState = {
 const store = createStore(combineReducers({
     formData: formDataReducer,
     users: usersReducer,
-    routing: routerReducer,
-    loggingReducer }), initialState, applyMiddleware(reduxRouterMiddleware, logger));
+    routing: routerReducer}), initialState, applyMiddleware(reduxRouterMiddleware, logger));
 
 export default store;

@@ -1,0 +1,11 @@
+.UserTable {
+    padding : 10px 0;
+    &-table {
+        width:50%;
+        margin:0 auto;
+    }
+    &-link {
+        text-align: center;
+        padding: 20px;
+    }
+}

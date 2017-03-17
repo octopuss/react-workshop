@@ -1,16 +1,38 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import "../variables";
 
+html {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     background: $lighter-blue;
+    margin: 0;
+    padding: 0;
 }
 
-form {
-    width: 50%;
-    margin: 0 auto;
-}
-
-h1 {
-    background-color: url('../../assets/img/cpas_logo.png') no-repeat left;
+.App {
+    &-header {
+        background-color: white;
+        border-bottom: 1px solid $light-grey;
+        margin: 0 auto;
+        overflow: auto;
+        padding: 30px 0;
+        &-image {
+            width: 45%;
+            text-align: right;
+            float:left;
+        }
+        &-text {
+            h1 {
+                padding: 10px;
+                margin: 0;
+                text-align: left;
+            }
+            width: 45%;
+            float: left;
+        }
+    }
 }

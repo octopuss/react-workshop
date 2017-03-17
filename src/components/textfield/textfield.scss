@@ -6,7 +6,7 @@
     font-size: 14px;
     clear: both;
     &-label {
-        width: 25%;
+        width: 10%;
         display: block;
         float: left;
         height: 50px;
@@ -17,13 +17,24 @@
     &-control {
         height: 40px;
         padding: 0 18px;
-        border-color: $light-blue;
         margin: 5px;
         border: $light-grey 1px solid;
         border-radius: 4px;
         position: relative;
-        width: 25%;
+        width: 80%;
         float: left;
+    }
+    &--disabled {
+        .TextField-label {
+            display: none;
+        }
+        .TextField-control {
+            background: transparent;
+            width: 100%;
+            padding: 0;
+            text-indent: 18px;
+            margin:0;
+        }
     }
 }
 
