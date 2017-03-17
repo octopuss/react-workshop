@@ -1,21 +1,10 @@
 var webpack = require('webpack');
 var path = require('path');
-process.traceDeprecation = true;
+
 const config = {
-    stats: {
-        colors: true,
-        timings: true,
-        reasons: false,
-        hash: false,
-        version: false,
-        chunks: false,
-        chunkModules: false,
-        cached: false,
-        cachedAssets: false
-    },
     entry: {
         vendor: [
-            'webpack-dev-server/client?http://localhost:3000',
+            'webpack-dev-server/client?http://0.0.0.0:3000',
             'webpack/hot/only-dev-server'
         ],
         app: path.resolve(__dirname, 'src/index.js')
@@ -76,6 +65,9 @@ const config = {
         port: 3000,
         historyApiFallback: true,
         hot: true,
+        stats: {
+            chunks : false
+        }
     },
 
 };

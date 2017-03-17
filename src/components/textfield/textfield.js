@@ -2,11 +2,11 @@ import React, { PropTypes } from 'react';
 import './textfield.scss';
 
 const TextField = props => {
-    const { label, name, onChange, value, disabled, ...otherProps } = props;
+    const { label, onChange, value, disabled, ...otherProps } = props;
     return (
         <div className={disabled ? "TextField--disabled" : "TextField"}>
-            {label ? <label htmlFor={name} className="TextField-label">{label}&nbsp;</label> : null}
-            <input name={name} type="text" className="TextField-control" onChange={onChange} value={value} {...otherProps}/>
+            {label ? <label className="TextField-label">{label}&nbsp;</label> : null}
+            <input type="text" className="TextField-control" onChange={onChange} value={value} {...otherProps}/>
         </div>
     );
 };

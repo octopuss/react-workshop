@@ -38,14 +38,12 @@ class UserTable extends React.Component {
         const userRows = users.map(user =>
             <tr key={user.id}>
                 <td onClick={this._editRow(user.id)}>
-                    <TextField name={'name-' + user.id}
-                               value={user.name}
+                    <TextField value={user.name}
                                disabled={!this._editable(user.id)}
                                onChange={this._editValue(user, 'name')}/>
                 </td>
                 <td onClick={this._editRow(user.id)}>
-                    <TextField name={'email-' + user.id}
-                               value={user.email}
+                    <TextField value={user.email}
                                disabled={!this._editable(user.id)}
                                onChange={this._editValue(user, 'email')}/>
                 </td>

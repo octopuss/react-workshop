@@ -23,9 +23,9 @@ class UserForm extends React.Component {
         return (
             <div className="UserForm">
                 <form className="UserForm-form" onSubmit={this._handleSubmit}>
-                    <TextField label="Username" name="name" value={formData.name}
+                    <TextField label="Username" value={formData.name}
                                onChange={this._handleChangeData('name')}/>
-                    <TextField label="Email" name="email" value={formData.email}
+                    <TextField label="Email" value={formData.email}
                                onChange={this._handleChangeData('email')}/>
                     <Button label="✔ Submit"/>
                 </form>
