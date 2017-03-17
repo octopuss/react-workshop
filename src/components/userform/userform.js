@@ -16,10 +16,7 @@ class UserForm extends React.Component {
         this.props.router.push('/list');
     };
 
-    _handleChangeData = (field, e) => e => {
-        const value = e.target.value;
-        this.props.onChangeInput(field, value);
-    };
+    _handleChangeData = field => e => this.props.onChangeInput(field, e.target.value);
 
     render() {
         const { formData } = this.props;
@@ -30,7 +27,7 @@ class UserForm extends React.Component {
                                onChange={this._handleChangeData('name')}/>
                     <TextField label="Email" name="email" value={formData.email}
                                onChange={this._handleChangeData('email')}/>
-                    <Button label="Submit"/>
+                    <Button label="✔ Submit"/>
                 </form>
             </div>
         );

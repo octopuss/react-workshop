@@ -12,23 +12,18 @@ class UserTable extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {_id : null};
+        this.state = { _id: null };
     }
 
-    _remove = id => () =>  this.props.onRemove(id);
+    _remove = id => () => this.props.onRemove(id);
 
-    _editRow = id => () =>  this.setState({_id: id});
+    _editRow = id => () => this.setState({ _id: id });
 
-    _closeRow = () => {
-        this.setState({_id: null}, () => console.log(this.state));
-    }
+    _closeRow = () => this.setState({ _id: null });
 
-    _editValue = (user, field, e) => e => {
-        const value = e.target.value;
-       this.props.onRowInputEdit(updeep.updateIn(field, value, user), value);
-    };
+    _editValue = (user, field) => e => this.props.onRowInputEdit(updeep.updateIn(field, e.target.value, user));
 
-    _editable = id => this.state._id !== id ? true : null;
+    _editable = id => this.state._id === id;
 
     render() {
         const { users } = this.props;
@@ -42,10 +37,21 @@ class UserTable extends React.Component {
 
         const userRows = users.map(user =>
             <tr key={user.id}>
-                <td onClick={this._editRow(user.id)}><TextField name={'name-' + user.id} value={user.name}  disabled={this._editable(user.id)} onChange={this._editValue(user, 'name')}/></td>
-                <td onClick={this._editRow(user.id)}><TextField name={'email-' + user.id} value={user.email} disabled={this._editable(user.id)} onChange={this._editValue( user, 'email')}/></td>
+                <td onClick={this._editRow(user.id)}>
+                    <TextField name={'name-' + user.id}
+                               value={user.name}
+                               disabled={!this._editable(user.id)}
+                               onChange={this._editValue(user, 'name')}/>
+                </td>
+                <td onClick={this._editRow(user.id)}>
+                    <TextField name={'email-' + user.id}
+                               value={user.email}
+                               disabled={!this._editable(user.id)}
+                               onChange={this._editValue(user, 'email')}/>
+                </td>
                 <td>
-                    {this.state._id === null ? <Button onClick={this._remove(user.id)} label="🗑️&nbsp;Remove"/> : <Button onClick={this._closeRow} label="Close"/>}
+                    {this.state._id !== user.id ? <Button onClick={this._remove(user.id)} label="✖"/> :
+                        <Button onClick={this._closeRow} label="✔"/>}
                 </td>
             </tr>
         );
@@ -56,7 +62,7 @@ class UserTable extends React.Component {
                 {userRows}
                 </tbody>
             </table>
-            <div className="UserTable-link"><Link to="/">Back to form</Link></div>
+            <div className="UserTable-link"><Link to="/">⬅ Back</Link></div>
         </div>);
     }
 }

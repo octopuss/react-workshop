@@ -27,9 +27,23 @@ body {
         }
         &-text {
             h1 {
-                padding: 10px;
+                padding: 0 0 0 10px;
                 margin: 0;
                 text-align: left;
+            }
+            svg {
+                padding-left:10px;
+                fill: $light-grey;
+                position: relative;
+                top: 2px;
+            }
+            a {
+                text-decoration: none;
+                color: $light-grey;
+                margin-left: 5px;
+                &:hover {
+                    text-decoration: underline;
+                }
             }
             width: 45%;
             float: left;
