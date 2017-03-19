@@ -1,0 +1,45 @@
+@import "../variables";
+
+.TextField {
+    color: $gray-dark;
+    padding: 6px 12px;
+    font-size: 14px;
+    clear: both;
+
+    &-label {
+        width: 10%;
+        display: block;
+        float: left;
+        height: 50px;
+        font-weight: bolder;
+        line-height: 55px;
+        text-align: right;
+    }
+
+    &-control {
+        height: 40px;
+        padding: 0 18px;
+        margin: 5px;
+        border: $light-grey 1px solid;
+        border-radius: 4px;
+        position: relative;
+        width: 80%;
+        float: left;
+    }
+
+    &--disabled {
+
+        .TextField-label {
+            display: none;
+        }
+
+        .TextField-control {
+            background: transparent;
+            width: 100%;
+            padding: 0;
+            text-indent: 18px;
+            margin: 0;
+        }
+    }
+}
+

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { withRouter } from 'react-router';
-import updeep from 'updeep';
+
 import { TextField, Button } from '../../components';
 import { onChangeInput, onSubmit } from '../../actions/actions';
 import { connect } from 'react-redux';
@@ -10,29 +10,22 @@ import "./userform.scss";
 
 class UserForm extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: '',
-            email: '',
-        };
-    }
-
     _handleSubmit = e => {
         e.preventDefault();
-        console.log(this.state);
+        this.props.onSubmit(this.props.formData);
+        this.props.router.push('/list');
     };
 
-    _handleChangeData = field => e => this.setState(updeep.updateIn(field, e.target.value, this.state));
+    _handleChangeData = field => e => this.props.onChangeInput(field, e.target.value);
 
     render() {
         const { formData } = this.props;
         return (
             <div className="UserForm">
                 <form className="UserForm-form" onSubmit={this._handleSubmit}>
-                    <TextField label="Username" value={this.state.name}
+                    <TextField label="Username" value={formData.name}
                                onChange={this._handleChangeData('name')}/>
-                    <TextField label="Email" value={this.state.email}
+                    <TextField label="Email" value={formData.email}
                                onChange={this._handleChangeData('email')}/>
                     <Button label="✔ Submit"/>
                 </form>
@@ -44,6 +37,19 @@ class UserForm extends React.Component {
 UserForm.propTypes = {
     onChangeInput: PropTypes.func,
     onSubmit: PropTypes.func,
+    formData: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        email: PropTypes.string
+    }),
+    router: React.PropTypes.shape(
+        { push: React.PropTypes.func.isRequired }),
 };
 
-export default UserForm;
+const _mapStateToProps = state => ({ formData: state.formData });
+
+const _mapDispatchToProps = dispatch => ({
+    onChangeInput: bindActionCreators(onChangeInput, dispatch),
+    onSubmit: bindActionCreators(onSubmit, dispatch)
+});
+
+export default connect(_mapStateToProps, _mapDispatchToProps)(withRouter(UserForm));

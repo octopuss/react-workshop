@@ -4,7 +4,7 @@ import { Router, Route, IndexRoute } from 'react-router';
 
 import './app.scss';
 
-const App = () =>
+const App = ({ history }) =>
     <div className="App">
         <div className="App-header">
             <div className="App-header-image"><img src={require('./cpas_logo.png')}/></div>
@@ -16,7 +16,10 @@ const App = () =>
                 <a href="https://github.com/octopuss/react-workshop">GitHub sources</a>
             </div>
         </div>
-        <UserForm/>
+        <Router history={history}>
+            <Route path="/" component={UserForm}/>
+            <Route path="/list" component={UserTable}/>
+        </Router>
     </div>;
 
 export default App;

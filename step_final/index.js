@@ -8,7 +8,12 @@ import { Provider } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
+const history = syncHistoryWithStore(browserHistory, store);
+
 render(
-    <App/>
-    , document.getElementById('app')
+    <div>
+        <Provider store={ store }>
+            <App history={history}/>
+        </Provider>
+    </div>, document.getElementById('app')
 );

@@ -16,7 +16,8 @@ const App = () =>
                 <a href="https://github.com/octopuss/react-workshop">GitHub sources</a>
             </div>
         </div>
-        <UserForm/>
+            <UserForm/>
+            <UserTable/>
     </div>;
 
 export default App;

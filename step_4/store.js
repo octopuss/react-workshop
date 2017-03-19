@@ -6,6 +6,7 @@ import { browserHistory } from 'react-router';
 import { routerMiddleware, routerReducer } from 'react-router-redux';
 
 const logger = createLogger();
+const reduxRouterMiddleware = routerMiddleware(browserHistory);
 
 const initialState = {
     formData : {
@@ -17,6 +18,7 @@ const initialState = {
 
 const store = createStore(combineReducers({
     formData: formDataReducer,
-    users: usersReducer}), initialState, applyMiddleware(logger));
+    users: usersReducer,
+    routing: routerReducer}), initialState, applyMiddleware(reduxRouterMiddleware, logger));
 
 export default store;

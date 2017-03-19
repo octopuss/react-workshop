@@ -9,6 +9,9 @@ import { browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
 render(
-    <App/>
-    , document.getElementById('app')
+    <div>
+        <Provider store={ store }>
+            <App/>
+        </Provider>
+    </div>, document.getElementById('app')
 );

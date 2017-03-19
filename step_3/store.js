@@ -17,6 +17,7 @@ const initialState = {
 
 const store = createStore(combineReducers({
     formData: formDataReducer,
-    users: usersReducer}), initialState, applyMiddleware(logger));
+    users: usersReducer,
+    routing: routerReducer}), initialState, applyMiddleware(logger));
 
 export default store;

@@ -12,11 +12,9 @@ const initialState = {
         name : "John Doe",
         email : "jd@example.com"
     },
-    users : [{id: Math.random(), name:"First Person Singular", email: "mail@example.com"}]
 };
 
 const store = createStore(combineReducers({
-    formData: formDataReducer,
-    users: usersReducer}), initialState, applyMiddleware(logger));
+    formData: formDataReducer}), initialState, applyMiddleware(logger));
 
 export default store;
